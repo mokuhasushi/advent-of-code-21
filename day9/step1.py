@@ -9,16 +9,16 @@ if len(sys.argv) > 1:
 def check_mask(field, i, j):
     value = field[i][j]
     if i != 0:
-        if field[i - 1][j] < value:
+        if field[i - 1][j] <= value:
             return False
     if i != len(field) - 1:
-        if field[i + 1][j] < value:
+        if field[i + 1][j] <= value:
             return False
     if j != 0:
-        if field[i][j - 1] < value:
+        if field[i][j - 1] <= value:
             return False
     if j != len(field[0]) - 1:
-        if field[i][j + 1] < value:
+        if field[i][j + 1] <= value:
             return False
     return True
 
@@ -37,4 +37,4 @@ with open(f_in_name) as f_in:
                 lowpoints.append((i, j))
                 sum += 1 + field[i][j]
 
-    print(sum, lowpoints)
+    print(sum)
